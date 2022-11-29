@@ -8,15 +8,15 @@
 {% block content %}
     <div class="container">
         <h2>Login Form</h2>
-        <form class="mt-3" action="{{ url_for('welcome') }}" method="post">
+        <form class="mt-3" action="{{ url_for('welcome') }}" method="get">
             <div class="mb-3">
               <label for="mail" class="form-label">Correo</label>
-              <input type="email" class="form-control" id="mai1"  name="mail" aria-describedby="emailHelp">
+              <input type="email" class="form-control" id="mail"  name="mail" aria-describedby="emailHelp">
               <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
-              <label for="Password" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" id="Password">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password" name="password">
             </div>
             <!-- <div class="mb-3 form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">

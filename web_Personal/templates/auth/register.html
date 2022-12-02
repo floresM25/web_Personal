@@ -9,31 +9,46 @@
 
 <div class="container">
     <h2>Formulario de registro</h2>
-   <form action="">
-    <div class="mb-3">
-        <label for="mail" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="name"  name="name">
+    <form method="post">
+      {{ form.hidden_tag() }}
+      <div class="mb-3">
+       {{ form.name.label }}
+       {{ form.name(class="form-control") }}
       </div>
       <div class="mb-3">
-        <label for="last_name" class="form-label">Apellidos</label>
-        <input type="text" class="form-control" id="last_name"  name="last_name">
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Correo</label>
-        <input type="email" class="form-control" id="email"  name="email">
-      </div>
-      <div class="mb-3">
-        <label for="pass" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" id="pass"  name="pass">
-      </div>
-      <div class="mb-3">
-        <label for="phone" class="form-label">Telefono</label>
-        <input type="number" class="form-control" id="phone"  name="pehone">
-      </div>
-      <button type="submit" class="btn btn-primary">Registrar</button>
-            <a type="button" href="{{ url_for('login') }}" class="btn btn-danger">Login</a>
+        {{ form.last_name.label }}
+        {{ form.last_name(class="form-control") }}
+       </div>
+       <div class="mb-3">
+        {{ form.email.label }}
+        {{ form.email(class="form-control") }}
+       </div>
+       <div class="mb-3">
+        {{ form.password.label }}
+        {{ form.password(class="form-control") }}
+       </div>
+       <div class="mb-3">
+        {{ form.phone.label }}
+        {{ form.phone(class="form-control") }}
+       </div>
+
+        
+       {{ form.is_married.label }}
+       {{ form.is_married }}
+
+       {{form.gender.label }}
+       <div class="input-group mb-3">
+            {{form.gender(class="custom-select") }}
+       </div>
+       
+
+
+       {{form.submit(class="btn btn-primary") }}
+    
+      <a type="button" href="{{ url_for('login') }}" class="btn btn-danger">Login</a>
        
     </form> 
+  </form>
 </div>
 
 

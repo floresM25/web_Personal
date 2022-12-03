@@ -6,42 +6,12 @@ from wtforms import (StringField, PasswordField,
                     IntegerField, RadioField,
                     SelectField, TextAreaField)
 from wtforms.validators import DataRequired, Email
+from home.views import home_blueprint
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] ='secret'
 
-####### Rutas Public #######
 
-@app.route('/')
-def index():
-    return render_template('public/index.html')
-
-@app.route('/about')
-def about():
-    return render_template('public/about.html')
-
-@app.route('/contact')
-def contact():
-    return render_template('public/contact.html')
-
-@app.route('/portfolio')
-def portfolio():
-    projects = [
-        {
-            'name':'Primer proyecto',
-            'description':'As we got further and further away, it [the Earth] diminished in size.Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, war...',
-            'image':'img/home-bg.jpg',
-            'url':'http://google.com'
-        },
-        {
-            'name':'Segundo proyecto',
-            'description':'As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you canimagine. That beautiful, warm....',
-            'image':'img/about-bg.jpg',
-            'url':'http://xataca.com'
-        },
-
-    ]
-    return render_template('public/portfolio.html', projects=projects)
 
 ################## Formularios de WTForms  ########################
 class LoginForm(FlaskForm):
@@ -88,6 +58,10 @@ def register():
 @app.errorhandler(404)
 def page_error_not_found(e):
     return render_template('error/404.html'), 404
+
+
+############## Apps #######################
+app.register_blueprint(home_blueprint)
 
 if __name__ =='__main__':
     app.run(debug=True)
